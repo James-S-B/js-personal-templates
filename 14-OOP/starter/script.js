@@ -1,28 +1,24 @@
 'use strict';
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`the ${this.make} spedup to ${this.speed}km/hr`);
+    return this.speed;
+  }
+  brake() {
+    this.speed -= 5;
+    console.log('brake');
+    console.log(`the ${this.make} slowed down to ${this.speed}km/hr`);
+    return this.speed;
+  }
+}
 
-// class Car {
-//   constructor(make, speed) {
-//     this.make = make;
-//     this.speed = speed;
-//   }
-//   accelerate() {
-//     this.speed += 10;
-//     console.log(`The ${this.make} accelerated to ${this.speed}km/hr`);
-//   }
-//   brake() {
-//     this.speed -= 5;
-//     console.log(`The ${this.make} deccelerated to ${this.speed}km/hr`);
-//   }
-//   get speedUS() {
-//     const speed = this.speed / 1.6;
-//     console.log(`The current speed is ${speed}MPH`);
-//     return speed;
-//   }
-//   set speedUS(speed) {
-//     this.speed = speed * 1.6;
-//     console.log(`The current speed is set to ${speed}MPH`);
-//   }
-// }
+const mercades = new Car('Mercades', 120);
+const bmw = new Car('BMW', 95);
 
 // const ford = new Car('Ford', 120);
 
@@ -82,3 +78,9 @@ Student.prototype = Object.create(Person.prototype);
 const mike = new Student('Mike', 2020, 'Computer Science');
 mike.introduce();
 mike.calcAge();
+mercades.accelerate();
+mercades.accelerate();
+mercades.brake();
+mercades.accelerate();
+mercades.brake();
+mercades.brake();
