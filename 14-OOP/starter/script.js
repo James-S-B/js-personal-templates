@@ -32,26 +32,53 @@
 // ford.brake();
 // ford.speedUS = 150;
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-};
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
-const Student = function (firstName, birthYear, course) {
-  Person.call(this, firstName, birthYear);
-  // this.firstName = firstName;
-  // this.birthYear = birthYear;
-  this.course = course;
-};
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   // this.firstName = firstName;
+//   // this.birthYear = birthYear;
+//   this.course = course;
+// };
+
+// Student.prototype = Object.create(Person.prototype);
+
+// Student.prototype.introduce = function () {
+//   console.log(`My names is ${this.firstName} and I study ${this.course}`);
+// };
+// const mike = new Student('Mike', 2020, 'Computer Science');
+// mike.introduce();
+// mike.calcAge();
+
+class Person {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+
+class Student extends Person {
+  constructor(firstName, birthYear, course) {
+    //have to call super first to set up the "this" keyword
+    super(firstName, birthYear);
+    this.course = course;
+  }
+  introduce() {
+    console.log(`My names is ${this.firstName} and I study ${this.course}`);
+  }
+}
 
 Student.prototype = Object.create(Person.prototype);
 
-Student.prototype.introduce = function () {
-  console.log(`My names is ${this.firstName} and I study ${this.course}`);
-};
 const mike = new Student('Mike', 2020, 'Computer Science');
 mike.introduce();
 mike.calcAge();
